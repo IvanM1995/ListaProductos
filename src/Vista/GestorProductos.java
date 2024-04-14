@@ -184,7 +184,7 @@ public class GestorProductos extends javax.swing.JFrame {
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
        int filaS = jTablaProductos.getSelectedRow();
-       if(filaS!=1){
+       if(filaS!=-1){
            
            modelo.removeRow(filaS);
            
