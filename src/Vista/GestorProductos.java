@@ -90,6 +90,11 @@ public class GestorProductos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTablaProductos);
 
         jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,7 +155,7 @@ public class GestorProductos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarActionPerformed
-        // TODO add your handling code here: String categoria = (String)jcCategoria.getSelectedItem();
+         String categoria = (String)jcCategoria.getSelectedItem();
         String nombre = jtNombre.getText();
         double precio = 0;
        try{
@@ -161,7 +166,7 @@ public class GestorProductos extends javax.swing.JFrame {
            return;
        }
        if((!nombre.equals(""))&&(precio>0)){
-            Object categoria = null;
+           
            Object arr[]= {nombre,categoria,precio};
         modelo.addRow(arr);
           } else{
@@ -176,6 +181,20 @@ public class GestorProductos extends javax.swing.JFrame {
         // TODO add your handling code here:
          activarCampos();
     }//GEN-LAST:event_jcCategoriaActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+       int filaS = jTablaProductos.getSelectedRow();
+       if(filaS!=1){
+           
+           modelo.removeRow(filaS);
+           
+       }else{
+           
+           JOptionPane.showMessageDialog(this, "Usted debe seleccionar una fila para eliminar");
+       }
+        
+        
+    }//GEN-LAST:event_jbEliminarActionPerformed
 
     /**
      * @param args the command line arguments
